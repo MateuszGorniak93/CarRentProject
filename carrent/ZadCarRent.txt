@@ -1,0 +1,8 @@
+Wypożyczalnia samochodów
+Stwórz prostą wypożyczalnię samochodów. Zaimplementuj następujące funkcjonalności:
+- możliwość dodania samochodu
+- możliwość usunięcia samochodu
+- możliwość edycji samochodu
+- możliwość wypożyczenia samochodu (Status wypożyczony, możliwość zmiany statusu na zwrócony)
+- Frontend w Thymeleaf/React/Angular
+- możliwość dodawania I usuwania użytkowników i przypisania im samochodu

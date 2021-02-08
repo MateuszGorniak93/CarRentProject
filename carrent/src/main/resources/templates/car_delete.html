@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete car</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+<h1>Delete car</h1>
+
+<form action="#" th:action="@{/delete_car}" th:object="${car_attr}" method="post">
+    <input type="text" th:field="*{id}" hidden="true" />
+    <input type="text" th:field="*{model}" readonly />
+    <input type="text" th:field="*{year}" readonly />
+    <input type="text" th:field="*{color}" readonly />
+    <input type="text" th:field="*{available}" hidden="true" />
+    <input type="text" th:field="*{user}" hidden="true" />
+
+    <input type="submit"  value="CONFIRM DELETE"  />
+</form>
+
+</body>
+</html>

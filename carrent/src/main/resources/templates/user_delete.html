@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete user</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+<h1>Delete user</h1>
+
+<!--wyjaśnienie do poniższego: &gt; oznacza 'greater than' czyli >     -->
+<!--trzeba to zastosować bo inaczej będzie błąd-->
+<!--sprawdzamy tu czy user ma więcej niż 0 aut wypożyczonych-->
+<!--&lt; for <          -->
+<!--&gt; for >          -->
+<!--&le; for <=          -->
+<!--&ge; for >=          -->
+<p th:if="${user_attr.noOfRentedCars &gt; 0}" class="warning" >Cannot delete this user because he is renting a car.</p>
+
+<form action="#" th:action="@{/delete_user}" th:object="${user_attr}" method="post">
+    <input type="text" th:field="*{id}" hidden="true" />
+    <input type="text" th:field="*{firstName}" readonly />
+    <input type="text" th:field="*{lastName}" readonly />
+    <input type="text" th:field="*{email}" readonly />
+
+    <input th:if="${user_attr.noOfRentedCars == 0}" type="submit"  value="CONFIRM DELETE"  />
+</form>
+
+</body>
+</html>

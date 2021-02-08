@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Car</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+<h1>Add new car</h1>
+
+<form action="#" th:action="@{/save_car}" th:object="${car_attr}" method="post">
+    <label for="car_model">Model:</label><br>
+    <input type="text" id="car_model" th:field="*{model}" /><br>
+
+    <label for="car_year">Year:</label><br>
+    <input type="text" id="car_year" th:field="*{year}" /><br>
+
+    <label for="car_color">Color:</label><br>
+    <input type="text" id="car_color" th:field="*{color}" /><br>
+
+    <input type="submit" id="add_car_submit" value="ADD" class="myButtonStyle addNew"  />
+</form>
+
+</body>
+</html>

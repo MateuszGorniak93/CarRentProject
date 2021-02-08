@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+<h1>Car list</h1>
+<table class="myTableStyle">
+    <thead>
+        <tr>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>ID</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Color</th>
+            <th>Available</th>
+            <th>Rented by</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="car : ${cars_attr}">
+            <td>
+                <form th:action="${'/cars/' + car.id + '/edit_form'}">
+                    <input type="submit" value="Edit" class="myButtonStyle" />
+                </form>
+            </td>
+            <td>
+                <form th:action="${'/cars/' + car.id + '/delete_form'}">
+                    <input type="submit" value="Delete" class="myButtonStyle" />
+                </form>
+            </td>
+            <td th:text="${car.id}"/>
+            <td th:text="${car.model}"/>
+            <td th:text="${car.year}"/>
+            <td th:text="${car.color}"/>
+            <td th:text="${car.available}"/>
+            <td th:if="${not car.available}" th:text="${'id=' + car.user?.id + ' | ' + car.user?.firstName + ' ' + car.user?.lastName}"/>
+            <td th:if="${car.available}"></td>
+            <td th:switch="${car.available}">
+                <form th:case="true" th:action="${'/cars/' + car.id + '/rent_form'}" method="get">
+                    <input type="submit" value="Rent" class="myButtonStyle" />
+                </form>
+                <form th:case="false" th:action="${'/cars/' + car.id + '/return'}" method="get">
+                    <input type="submit" value="Return" class="myButtonStyle" />
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<form action="#" th:action="@{/add_car_form}">
+    <input type="submit" value="ADD NEW CAR" class="myButtonStyle addNew" />
+</form>
+
+</body>
+</html>

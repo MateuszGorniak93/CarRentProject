@@ -1,0 +1,73 @@
+body {
+    font-size: 16px;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    color: #545454;
+}
+
+.myTableStyle {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.myTableStyle td, .myTableStyle th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.myTableStyle tr:nth-child(even){background-color: #f2f2f2;}
+
+.myTableStyle tr:hover {background-color: #ddd;}
+
+.myTableStyle th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #008CBA;
+    color: white;
+}
+
+.myButtonStyle {
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    background-color: white;
+    color: black;
+    border: 2px solid #008CBA;
+}
+
+.myButtonStyle:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+.addNew {
+    font-size: 16px;
+    margin: 20px 0px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.addNew:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+
+label {
+    font-size: 16px;
+}
+
+.warning {
+    font-size: 16px;
+    color: red;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rent a car</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+<h1>Rent a car</h1>
+
+<form action="#" th:action="@{/save_car}" th:object="${car_attr}" method="post">
+    <input type="text" th:field="*{id}" hidden="true" />
+
+    <label for="car_model">Model:</label><br>
+    <input type="text" id="car_model" th:field="*{model}"  /><br>
+
+    <label for="car_year">Year:</label><br>
+    <input type="text" id="car_year" th:field="*{year}"  /><br>
+
+    <label for="car_color">Color:</label><br>
+    <input type="text" id="car_color" th:field="*{color}"  /><br>
+
+    <label for="car_available">Status:</label><br>
+    <input type="text" id="car_available" th:field="*{available}"  /><br>
+
+<!--    <input type="text" th:field="*{user}" hidden="true" />-->
+
+    <label for="renting_user">Choose a user who wants to rent this car:</label><br>
+    <select th:field="*{rentingUserId}" id="renting_user">
+<!--        <option selected disabled th:value="${null}">Please select a user</option>-->
+        <option th:each="u : ${users_attr}" th:text="${'id=' + u.id + ' | ' + u.firstName + ' ' + u.lastName}" th:value="${u.id}"></option>
+    </select><br>
+
+    <input type="submit"  value="CONFIRM RENT"  />
+</form>
+
+</body>
+</html>
